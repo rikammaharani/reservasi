@@ -45,7 +45,17 @@
                             <label for="exampleInputEmail1">Pilih Jadwal</label>
                             <select name="id_jadwal" id="" class="form-control">
                                 @foreach ($jadwal as $j)
+                                    {{-- <option value="{{ $j->id }}" {!! ($data->id_jadwal == $j->id ? "selected=\"selected\"" : "") !!} readonly>{{ $j->tanggal }}/{{ $j->jam_awal }}-{{ $j->jam_akhir }}</option> --}}
+                                    <?php
+                                        $check = DB::table('reservasi')
+                                            ->where('id_jadwal', $j->id)
+                                            ->count();
+                                    ?>
+                                    @if($check > 0 && $data->id_jadwal != $j->id)                                   
+                                    <option value="{{ $j->id }}" disabled style="background-color: #ddd;">{{ $j->tanggal }}/{{ $j->jam_awal }}-{{ $j->jam_akhir }}</option>
+                                    @else
                                     <option value="{{ $j->id }}" {!! ($data->id_jadwal == $j->id ? "selected=\"selected\"" : "") !!} readonly>{{ $j->tanggal }}/{{ $j->jam_awal }}-{{ $j->jam_akhir }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

@@ -57,6 +57,7 @@ Route::post('/admin/jadwal/store', [App\Http\Controllers\JadwalController::class
 Route::get('/admin/jadwal/{id}/destroy', [App\Http\Controllers\JadwalController::class, 'destroy'])->name('destroy.jadwal');
 Route::get('/admin/jadwal/importExcel', [App\Http\Controllers\JadwalController::class, 'importExcel'])->name('importExcel.jadwal');
 Route::post('/admin/jadwal/import_excel', [App\Http\Controllers\JadwalController::class, 'import_excel'])->name('import_excel.jadwal');
+Route::get('/admin/jadwal/export_excel', [App\Http\Controllers\JadwalController::class, 'export_excel'])->name('export_excel.jadwal');
 
 
 //user

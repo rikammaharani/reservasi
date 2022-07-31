@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Reservation;
-use App\Models\Payment;
+use App\Models\Reservasi;
+use App\Models\Jadwal;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -40,9 +40,25 @@ class HomeController extends Controller
 
             return view('admin.dashboard');
         }else{
-           
+            $countNewBook = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','menunggu')
+            ->whereYear('jadwals.tanggal',$dayNow)
+            ->count();
 
-            return view('admin.dashboard');
+            $countBook = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','dilayani')
+            ->whereYear('jadwals.tanggal',$dayNow)
+            ->count();
+
+            $countDoneBook = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereYear('jadwals.tanggal',$dayNow)
+            ->count();
+
+            $yearLast = $yearNow-1;
+
+
+            return view('admin.dashboard', compact('countNewBook', 'countBook','countDoneBook','yearLast','yearNow'));
         }
     }
 

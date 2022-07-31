@@ -22,6 +22,9 @@
                 <div class="custom-file text-left">
                     <input type="file" name="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose file</label>
+                    <li class="list-group-item">Format Excel : <a href="{{ route('export_excel.jadwal') }}" class="btn btn-success" target="_blank">Format Jadwal</a>
+                </li>
+
                 </div>
             </div>
             <button class="btn btn-primary">Import data</button>

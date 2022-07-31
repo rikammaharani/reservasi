@@ -11,4 +11,9 @@ class Pasien extends Model
 
     protected $table = 'pasiens';
     protected $guarded = [];
+
+    public function user()
+    {
+       return $this->belongsTo(User::class);
+    }
 }

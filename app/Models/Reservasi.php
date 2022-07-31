@@ -11,4 +11,9 @@ class Reservasi extends Model
     
     protected $table = 'reservasi';
     protected $guarded = [];
+
+    public function user()
+    {
+       return $this->belongsTo(User::class);
+    }
 }

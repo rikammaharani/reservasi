@@ -19,14 +19,14 @@
                 <form action="{{ route('store.pasien') }}" method="POST">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="exampleInputEmail1">Pilih User</label>
-                            <select name="id_user" id="" class="form-control">
+                            <select name="id_user" id="" class="form-control" aria-label="Disabled select example" disabled>
                                 @foreach ($user as $p)
                                     <option value="{{ $p->id }}">{{ $p->name }}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nama</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" name="nama" placeholder="Masukan Nama..">

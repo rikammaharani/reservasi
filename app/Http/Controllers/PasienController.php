@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pasien;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class PasienController extends Controller
 {
@@ -47,8 +48,9 @@ class PasienController extends Controller
             'tlp' => 'required',
         ]);
 
+
         $data = new Pasien();
-        $data->id_user = $request->id_user;
+        $data->id_user = Auth::user()->id;
         $data->nama = $request->nama;
         $data->tgl_lahir = $request->tgl_lahir;
         $data->jk = $request->jk;
@@ -57,7 +59,7 @@ class PasienController extends Controller
         $data->tlp = $request->tlp;
         $data->save();
 
-        return redirect(route('index.pasien'))->with('success', 'Data berhasil ditambahkan');
+        return redirect(route('create.reservasi'))->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -102,7 +104,8 @@ class PasienController extends Controller
             'tlp' => 'required',
         ]);
 
-        $data = Pasien::find($id);
+        $data = new Reservasi();
+        $data->id_user = $user->id_user;
         $data->nama = $request->nama;
         $data->tgl_lahir = $request->tgl_lahir;
         $data->jk = $request->jk;

@@ -120,12 +120,12 @@
                         <div class="col-4">
                             <ul class="list_style">
                                 <li><a href="{{ route('landing.page') }}">Home</a></li>
-                                <li><a href="#facilities">Facilities</a></li>
+                                <li><a href="#acomodation">Reservasi</a></li>
                             </ul>
                         </div>
                         <div class="col-4">
                             <ul class="list_style">
-                                <li><a href="#acomodation">Form</a></li>
+                                <li><a href="#about">About Us</a></li>
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div>

@@ -69,5 +69,13 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $data = $this->validator($request->all());
+        if ($data->fails()) {
+            $this->throwValidationException(
+                $request, $data
+            );
+        }
+        Auth::guard($this->getGuard())->login($this->create($request->all()));
+        return redirect()->route('/login');
     }
 }

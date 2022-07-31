@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jadwal;
 use App\Imports\JadwalImport;
+use App\Exports\JadwalExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
@@ -111,4 +112,9 @@ class JadwalController extends Controller
         Excel::import(new JadwalImport, $request->file('file'));
         return back()->with('success', 'Data berhasil ditambahkan');
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new JadwalExport, 'file_jadwal.xlsx');
+	}
 }

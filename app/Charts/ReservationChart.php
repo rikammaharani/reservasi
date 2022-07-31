@@ -7,7 +7,7 @@ namespace App\Charts;
 use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
-use App\Models\Reservation;
+use App\Models\Reservasi;
 use Carbon\Carbon;
 
 class ReservationChart extends BaseChart
@@ -22,126 +22,149 @@ class ReservationChart extends BaseChart
         $yearNow = Carbon::now('GMT+8')->format('Y');
         $yearLast = $yearNow-1;
 
-        $jan = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',1)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $jan = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',1)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $feb = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',2)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $feb = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',2)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $mar = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',3)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $mar = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',3)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $apr = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',4)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $apr = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',4)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $may = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',5)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $may = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',5)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $jun = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',6)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $jun = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',6)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $jul = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',7)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $jul = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',7)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $aug = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',8)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $aug = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',8)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $sep = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',9)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $sep = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',9)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $oct = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',10)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $oct = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',10)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $nov = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',11)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $nov = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',11)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
-        $dec = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',12)
-        ->whereYear('check_in',$yearNow)
-        ->count();
+        $dec = Reservasi::join('jadwals','reservasi.id_jadwal','=','jadwals.id')
+            ->where('status','selesai')
+            ->whereMonth('jadwals.tanggal',12)
+            ->whereYear('jadwals.tanggal',$yearNow)
+            ->count();
 
         // ----------------------------LY-----------------
 
-        $Lyjan = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',1)
-        ->whereYear('check_in',$yearLast)
+        $Lyjan = Reservasi::join('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',1)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lyfeb = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',2)
-        ->whereYear('check_in',$yearLast)
+        $Lyfeb = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',2)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lymar = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',3)
-        ->whereYear('check_in',$yearLast)
+        $Lymar = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',3)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lyapr = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',4)
-        ->whereYear('check_in',$yearLast)
+        $Lyapr = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',4)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lymay = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',5)
-        ->whereYear('check_in',$yearLast)
+        $Lymay = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',5)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lyjun = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',6)
-        ->whereYear('check_in',$yearLast)
+        $Lyjun = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',6)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lyjul = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',7)
-        ->whereYear('check_in',$yearLast)
+        $Lyjul = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',7)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lyaug = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',8)
-        ->whereYear('check_in',$yearLast)
+        $Lyaug = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->whereMonth('jadwals.tanggal',8)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lysep = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',9)
-        ->whereYear('check_in',$yearLast)
+        $Lysep = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',9)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lyoct = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',10)
-        ->whereYear('check_in',$yearLast)
+        $Lyoct = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',10)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lynov = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',11)
-        ->whereYear('check_in',$yearLast)
+        $Lynov = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',11)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
-        $Lydec = Reservation::where('reservation_status','success')
-        ->whereMonth('check_in',12)
-        ->whereYear('check_in',$yearLast)
+        $Lydec = Reservasi::where('jadwal', 'reservasi.id_jadwal', '=', 'jadwals.id')
+        ->where('status','selesai')
+        ->whereMonth('jadwals.tanggal',12)
+        ->whereYear('jadwals.tanggal',$yearLast)
         ->count();
 
         return Chartisan::build()

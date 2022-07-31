@@ -39,9 +39,7 @@ trait RegistersUsers
             return $response;
         }
 
-        return $request->wantsJson()
-                    ? new JsonResponse([], 201)
-                    : redirect($this->redirectPath());
+        return view('auth.login');
     }
 
     /**

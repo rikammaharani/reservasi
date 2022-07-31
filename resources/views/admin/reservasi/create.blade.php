@@ -47,7 +47,17 @@
                             <label for="exampleInputEmail1">Pilih Jadwal</label>
                             <select name="id_jadwal" id="" class="form-control">
                                 @foreach ($jadwal as $j)
+                                    {{-- <option value="{{ $j->id }}">{{ $j->tanggal }}/{{ $j->jam_awal }}-{{ $j->jam_akhir }}</option> --}}
+                                    <?php
+                                    $check = DB::table('reservasi')
+                                        ->where('id_jadwal', $j->id)
+                                        ->count();
+                                    ?>
+                                    @if($check > 0)
+                                    <option value="{{ $j->id }}" disabled style="background-color: #ddd;">{{ $j->tanggal }}/{{ $j->jam_awal }}-{{ $j->jam_akhir }}</option>
+                                    @else
                                     <option value="{{ $j->id }}">{{ $j->tanggal }}/{{ $j->jam_awal }}-{{ $j->jam_akhir }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -62,6 +72,14 @@
                                 <option value="Menunggu">Menunggu</option>
                                 <option value="Dilayani">Dilayani</option>
                                 <option value="Selesai">Selesai</option>
+                            </select>
+                        </div>
+                        @endif
+                        @if(Auth::user()->access == "user")
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Status</label>
+                            <select name="status" class="form-control" id="">
+                                <option value="Menunggu">Menunggu</option>
                             </select>
                         </div>
                         @endif

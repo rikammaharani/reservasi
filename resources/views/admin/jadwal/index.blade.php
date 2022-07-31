@@ -36,6 +36,7 @@
 		</div>
 		@endif
  
+                            <a href="{{ route('importExcel.jadwal') }}" class="btn btn-primary">Import Jadwal</a>
                             <a href="{{ route('create.jadwal') }}" class="btn btn-primary">Tambah Jadwal</a>
                         </div>
                         <table class="table table-bordered">
