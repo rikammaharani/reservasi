@@ -17,8 +17,8 @@
                 <ul class="nav navbar-nav menu_nav ml-auto">
                     <li class="nav-item active"><a class="nav-link" href="{{ route('landing.page') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#acomodation">Reservasi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">Kontak</a></li>
                     @if (Route::has('login'))
                         @auth
                             <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">@if((Auth::user()->access == "admin") || (Auth::user()->access == "head")) Dashboard @else Member Area @endif</a></li>
@@ -56,6 +56,8 @@
                 <h6>Klinik Ahsana Rumah Sehat dan Herbal </h6>
                 <h2>Reservasi Sekarang</h2>
                 <p>Rumah Sehat & Rumah Herbal AHSANA terletak di Kota Malang, Jawa Timur.</p>
+                <h3  >Kami Buka </h3>
+                <h5>SENIN-SABTU | 07:30-17:00</h5>
             </div>
         </div>
     </div>
@@ -86,7 +88,7 @@
         <div class="row">
             <div class="col-md-6 d_flex align-items-center">
                 <div class="about_content ">
-                    <h2 class="title title_color">About Us
+                    <h2 class="title title_color">Tentang Kami
 
                         <!-- <br>Our History<br>Mission & Vision -->
 
@@ -109,7 +111,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h6 class="footer_title">CONTACT</h6>
+                    <h6 class="footer_title">Kontak</h6>
                     <p>Klinik Ahsana Rumah Sehat dan Herbal merupakan sebuah klinik pelayanan kesehatan alternatif, yang menyediakan pelayanan pijat refleksi. Berdiri sejak tahun ...., kami memberikan pelayanan terbaik untuk kesehatan, kenyamanan, dan kepuasaan pengunjung.Klinik Ahsana berlokasi di  Jl. Kedawung 56, Kota Malang, Jawa Timur. </p>
                 </div>
             </div>
@@ -125,8 +127,8 @@
                         </div>
                         <div class="col-4">
                             <ul class="list_style">
-                                <li><a href="#about">About Us</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#about">Tentang Kami</a></li>
+                                <li><a href="#">Kontak</a></li>
                             </ul>
                         </div>
                     </div>

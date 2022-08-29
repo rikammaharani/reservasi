@@ -48,6 +48,7 @@ class ReservasiController extends Controller
             'id_jadwal' => 'required',
             'keluhan' => 'required',
             'status' => '',
+            'nik' => 'required',
         ]);
 
         $user = Pasien::where('id',$request->id_pasien)->first();
@@ -58,6 +59,7 @@ class ReservasiController extends Controller
         $data->id_jadwal = $request->id_jadwal;
         $data->keluhan = $request->keluhan;
         $data->status = $request->status;
+        $data->nik = $request->nik;
         $data->save();
 
         return redirect(route('index.reservasi'))->with('success', 'Data berhasil ditambahkan');
@@ -103,6 +105,7 @@ class ReservasiController extends Controller
             'id_jadwal' => 'required',
             'keluhan' => 'required',
             'status' => '',
+            'nik' => 'required',
         ]);
         $user = Pasien::where('id',$request->id_pasien)->first();
 
@@ -112,6 +115,7 @@ class ReservasiController extends Controller
         $data->id_jadwal = $request->id_jadwal;
         $data->keluhan = $request->keluhan;
         $data->status = $request->status;
+        $data->nik = $request->nik;
         $data->save();
 
         return redirect(route('index.reservasi'))->with('success', 'Data berhasil diubah');

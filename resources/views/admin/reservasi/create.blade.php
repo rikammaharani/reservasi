@@ -44,6 +44,10 @@
                             <a href="{{ route('create.pasien') }}" class="btn btn-primary">Tambah Pasien</a>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">NIK</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="nik" placeholder="Masukan NIK..">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Pilih Jadwal</label>
                             <select name="id_jadwal" id="" class="form-control">
                                 @foreach ($jadwal as $j)
@@ -61,6 +65,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">Keluhan</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" name="keluhan" placeholder="Masukan Keluhan..">

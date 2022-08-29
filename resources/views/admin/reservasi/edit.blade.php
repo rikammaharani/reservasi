@@ -42,6 +42,10 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">NIK</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="nik" value="{{ $data->nik }}" placeholder="Masukan NIK.." readonly>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Pilih Jadwal</label>
                             <select name="id_jadwal" id="" class="form-control">
                                 @foreach ($jadwal as $j)
@@ -59,6 +63,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">Keluhan</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" name="keluhan" value="{{ $data->keluhan }}" placeholder="Masukan Keluhan.." readonly>

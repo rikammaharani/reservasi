@@ -30,6 +30,7 @@
                                 <tr>
                                     <th style="width: 10px">No</th>
                                     <th>Pasien</th>
+                                    <th>NIK</th>
                                     <th>Status</th>
                                     <th>Jadwal</th>
                                     <th>Opsi</th>
@@ -40,6 +41,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nama }}</td>
+                                    <td>{{ $data->nik }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td>{{ $data->tanggal }}</td>
                                     <td>
@@ -67,9 +69,9 @@
                                 <tr>
                                     <th style="width: 10px">No</th>
                                     <th>Pasien</th>
+                                    <th>NIK</th>
                                     <th>Status</th>
                                     <th>Jadwal</th>
-                                    <th>Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,8 +79,9 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nama }}</td>
+                                    <td>{{ $data->nik }}</td>
                                     <td>{{ $data->status }}</td>
-                                    <td>{{ $data->tanggal }}</td>
+                                    <td>{{ $data->tanggal }} ({{ $data->jam_awal }})</td>
                                 </tr>
                                 @endforeach
                             </tbody>
